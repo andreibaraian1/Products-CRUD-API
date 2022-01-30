@@ -25,6 +25,7 @@ class Database
 
     }
     public function selectAll($table){
+        $arr=[];
         $sql = "SELECT * FROM $table";
         $result = $this->mysqli->query($sql);
         while($row = mysqli_fetch_object($result)) {
