@@ -6,9 +6,6 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 $id = $_GET['id'];
-$Product = new ProductQueries();
+$Product = new Product();
 $result = $Product->deleteProduct($id);
-echo($id.' Deleted');
-
-?>
-
+echo ($id . ' Deleted');
