@@ -9,3 +9,4 @@ $id = $_GET['id'];
 $Product = new Product();
 $result = $Product->deleteProduct($id);
 echo ($id . ' Deleted');
+?>

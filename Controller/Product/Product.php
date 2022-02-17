@@ -22,3 +22,4 @@ class Product
         $this->db->insert('products', ['sku' => $sku, 'name' => $name, 'price' => $price, 'productType' => $productType, 'description' => $description]);
     }
 }
+?>

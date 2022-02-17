@@ -8,3 +8,4 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $Product = new Product();
 echo $Product->selectProducts();
+?>

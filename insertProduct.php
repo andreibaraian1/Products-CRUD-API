@@ -16,3 +16,4 @@ $json = file_get_contents('php://input');
 $values = json_decode($json, true);
 $product = new Product();
 $product->insertProduct($values['sku'], $values['name'], $values['price'], $values['productType'], $values['description']);
+?>
