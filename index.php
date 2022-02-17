@@ -1,5 +1,5 @@
 <?php
-include './Controller/Product/ProductQueries.php';
+include './Controller/Product/Product.php';
 header("Access-Control-Allow-Origin: https://react-scandiweb-application.herokuapp.com");
 header("Access-Control-Allow-Headers: https://react-scandiweb-application.herokuapp.com");
 header("Content-Type: application/json; charset=UTF-8");

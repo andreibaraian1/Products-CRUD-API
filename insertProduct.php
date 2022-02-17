@@ -1,5 +1,5 @@
 <?php
-include './Controller/Product/ProductQueries.php';
+include './Controller/Product/Product.php';
 header('Access-Control-Allow-Origin: https://scandiweb-self.vercel.app');
 
 header('Access-Control-Allow-Methods: GET, POST,DELETE,OPTIONS');
@@ -16,4 +16,3 @@ $json = file_get_contents('php://input');
 $values = json_decode($json, true);
 $product = new Product();
 $product->insertProduct($values['sku'], $values['name'], $values['price'], $values['productType'], $values['description']);
-?>

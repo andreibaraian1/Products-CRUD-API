@@ -1,5 +1,5 @@
 <?php
-include './Controller/Product/ProductQueries.php';
+include './Controller/Product/Product.php';
 header("Access-Control-Allow-Origin: https://scandiweb-self.vercel.app");
 header("Access-Control-Allow-Headers: https://scandiweb-self.vercel.app");
 header("Content-Type: application/json; charset=UTF-8");
