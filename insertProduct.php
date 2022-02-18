@@ -1,18 +1,22 @@
 <?php
-include './Controller/Product/Product.php';
-header('Access-Control-Allow-Origin: https://scandiweb-self.vercel.app');
-
-header('Access-Control-Allow-Methods: GET, POST,DELETE,OPTIONS');
-header('Access-Control-Max-Age: 1000');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-    header('Cache-Control: public, max-age=86400');
-    header('Vary: origin');
-    exit(0);
-}
-
+require_once './Product/Query.php';
+require_once './headers.php';
+require_once './Controller/Products/Book.php';
+require_once './Controller/Products/Dvd.php';
+require_once './Controller/Products/Furniture.php';
 $json = file_get_contents('php://input');
 $values = json_decode($json, true);
-$product = new Product();
-$product->insertProduct($values['sku'], $values['name'], $values['price'], $values['productType'], $values['description']);
+$result = (object) $values;
+$Query = new Query();
+switch ($result->productType) {
+    case 'Books':
+        $product = new Book($result->sku, $result->name, $result->price, $result->weight);
+        break;
+    case 'Furniture':
+        $product = new Furniture($result->sku, $result->name, $result->price, $result->height, $result->width, $result->length);
+        break;
+    case 'DVD':
+        $product = new Dvd($result->sku, $result->name, $result->price, $result->size);
+        break;
+}
+$Query->insertProduct($product->sku, $product->name, $product->price, $product->type, $product->description);
