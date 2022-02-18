@@ -1,5 +1,5 @@
 <?php
-require_once './Product/Product.php';
+require_once dirname(__DIR__).'/../Product/Product.php';
 class Book extends Product
 {
     public $weight;

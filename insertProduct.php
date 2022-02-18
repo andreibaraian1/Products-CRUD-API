@@ -1,9 +1,9 @@
 <?php
-require_once './Product/Query.php';
-require_once './headers.php';
-require_once './Controller/Products/Book.php';
-require_once './Controller/Products/Dvd.php';
-require_once './Controller/Products/Furniture.php';
+require_once dirname(__DIR__).'./Product/Query.php';
+require_once dirname(__DIR__).'./headers.php';
+require_once dirname(__DIR__).'./Controller/Products/Book.php';
+require_once dirname(__DIR__).'./Controller/Products/Dvd.php';
+require_once dirname(__DIR__).'./Controller/Products/Furniture.php';
 $json = file_get_contents('php://input');
 $values = json_decode($json, true);
 $result = (object) $values;

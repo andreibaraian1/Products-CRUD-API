@@ -1,10 +1,10 @@
 <?php
-require_once './Product/Query.php';
-require_once './Product/Product.php';
-include_once './Controller/Products/Book.php';
-include_once './Controller/Products/Dvd.php';
-include_once './Controller/Products/Furniture.php';
-require_once './headers.php';
+require_once dirname(__DIR__).'./Product/Query.php';
+require_once dirname(__DIR__).'./Product/Product.php';
+include_once dirname(__DIR__).'./Controller/Products/Book.php';
+include_once dirname(__DIR__).'./Controller/Products/Dvd.php';
+include_once dirname(__DIR__).'./Controller/Products/Furniture.php';
+require_once dirname(__DIR__).'./headers.php';
 $id = $_GET['id'];
 $Query = new Query();
 $result = $Query->getProduct($id);

@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__).'/../Product/Product.php';
 class Dvd extends Product
 {
     public $size;
