@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . './Query.php';
+require_once dirname(__FILE__) . '/Query.php';
 class Product extends Query
 {
     public $sku;
