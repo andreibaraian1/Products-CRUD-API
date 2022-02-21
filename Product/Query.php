@@ -1,5 +1,5 @@
 <?php 
-require_once dirname(__DIR__).'./Database/Database.php';
+require_once dirname(__FILE__).'/../Database/Database.php';
 class Query
 {
     private $db;

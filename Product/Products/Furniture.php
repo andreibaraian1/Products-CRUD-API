@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__).'/../Product/Product.php';
+require_once dirname(__FILE__).'/../Product.php';
 class Furniture extends Product
 {
     public $height;

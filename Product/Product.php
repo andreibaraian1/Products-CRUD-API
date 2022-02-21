@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__).'./Product/Query.php';
+require_once dirname(__FILE__) . './Query.php';
 class Product extends Query
 {
     public $sku;
@@ -13,5 +13,4 @@ class Product extends Query
         $this->price = $price;
         $this->type = $type;
     }
-    
 }
