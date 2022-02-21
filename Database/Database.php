@@ -15,8 +15,7 @@ class Database
             exit('Error connecting to database');
         }
     }
-    
-    
+
     public function __destruct()
     {
         $this->mysqli->close();

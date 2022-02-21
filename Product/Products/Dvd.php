@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'/../Product.php';
+require_once dirname(__FILE__) . '/../Product.php';
 class Dvd extends Product
 {
     public $size;

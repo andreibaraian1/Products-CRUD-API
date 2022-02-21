@@ -1,9 +1,9 @@
 <?php
-require_once dirname(__FILE__).'/Product/Query.php';
-require_once dirname(__FILE__).'/headers.php';
-require_once dirname(__FILE__).'/Product/Products/Book.php';
-require_once dirname(__FILE__).'/Product/Products/Dvd.php';
-require_once dirname(__FILE__).'/Product/Products/Furniture.php';
+require_once dirname(__FILE__) . '/Product/Query.php';
+require_once dirname(__FILE__) . '/headers.php';
+require_once dirname(__FILE__) . '/Product/Products/Book.php';
+require_once dirname(__FILE__) . '/Product/Products/Dvd.php';
+require_once dirname(__FILE__) . '/Product/Products/Furniture.php';
 $json = file_get_contents('php://input');
 $values = json_decode($json, true);
 $result = (object) $values;

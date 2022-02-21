@@ -6,6 +6,7 @@ class Product extends Query
     public $name;
     public $price;
     public $type;
+    
     public function __construct($sku, $name, $price, $type)
     {
         $this->sku = $sku;

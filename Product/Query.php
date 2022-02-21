@@ -1,12 +1,14 @@
-<?php 
-require_once dirname(__FILE__).'/../Database/Database.php';
+<?php
+require_once dirname(__FILE__) . '/../Database/Database.php';
 class Query
 {
     private $db;
+
     public function __construct()
     {
         $this->db = new Database();
     }
+
     public function selectProducts()
     {
         $arr = [];
@@ -17,7 +19,9 @@ class Query
             $arr[] = $row;
         }
         return json_encode($arr);
+        $stmt->close();
     }
+
     public function deleteProduct($id)
     {
         $stmt = $this->db->mysqli->prepare("DELETE FROM products WHERE sku = ?");
@@ -25,6 +29,7 @@ class Query
         $stmt->execute();
         $stmt->close();
     }
+
     public function insertProduct($sku, $name, $price, $productType, $description)
     {
         $stmt = $this->db->mysqli->prepare("INSERT INTO products (sku,name,price,productType,description) VALUES (?,?,?,?,?)");
@@ -32,13 +37,14 @@ class Query
         $stmt->execute();
         $stmt->close();
     }
-    public function getProduct($id) {
+
+    public function getProduct($id)
+    {
         $stmt = $this->db->mysqli->prepare("SELECT * FROM products WHERE sku = ?");
-        $stmt->bind_param("s",$id);
+        $stmt->bind_param("s", $id);
         $stmt->execute();
-        $result=$stmt->get_result();
+        $result = $stmt->get_result();
         return $result->fetch_object();
         $stmt->close();
-        
     }
 }

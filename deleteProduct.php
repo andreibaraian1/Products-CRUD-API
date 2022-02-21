@@ -1,10 +1,10 @@
 <?php
-require_once dirname(__FILE__).'/Product/Query.php';
-require_once dirname(__FILE__).'/Product/Product.php';
-require_once dirname(__FILE__).'/Product/Products/Book.php';
-require_once dirname(__FILE__).'/Product/Products/Dvd.php';
-require_once dirname(__FILE__).'/Product/Products/Furniture.php';
-require_once dirname(__FILE__).'/headers.php';
+require_once dirname(__FILE__) . '/Product/Query.php';
+require_once dirname(__FILE__) . '/Product/Product.php';
+require_once dirname(__FILE__) . '/Product/Products/Book.php';
+require_once dirname(__FILE__) . '/Product/Products/Dvd.php';
+require_once dirname(__FILE__) . '/Product/Products/Furniture.php';
+require_once dirname(__FILE__) . '/headers.php';
 $id = $_GET['id'];
 $Query = new Query();
 $result = $Query->getProduct($id);
@@ -22,4 +22,5 @@ switch ($result->productType) {
         $product = new Dvd($result->sku, $result->name, $result->price, $res[0]);;
         break;
 }
+
 $Query->deleteProduct($product->sku);
