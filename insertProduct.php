@@ -1,5 +1,4 @@
 <?php
-require_once dirname(__FILE__) . '/Product/Query.php';
 require_once dirname(__FILE__) . '/headers.php';
 require_once dirname(__FILE__) . '/Product/Products/Book.php';
 require_once dirname(__FILE__) . '/Product/Products/Dvd.php';
@@ -7,7 +6,7 @@ require_once dirname(__FILE__) . '/Product/Products/Furniture.php';
 $json = file_get_contents('php://input');
 $values = json_decode($json, true);
 $result = (object) $values;
-$Query = new Query();
+
 switch ($result->productType) {
     case 'Books':
         $product = new Book($result->sku, $result->name, $result->price, $result->weight);
@@ -19,4 +18,5 @@ switch ($result->productType) {
         $product = new Dvd($result->sku, $result->name, $result->price, $result->size);
         break;
 }
-$Query->insertProduct($product->sku, $product->name, $product->price, $product->type, $product->description);
+
+$product->insertProduct($product);
