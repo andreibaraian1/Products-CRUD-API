@@ -12,20 +12,14 @@ class Product
     public function __construct($sku = null, $name = null, $price = null, $type = null, $description = null)
     {
         $this->db = new Database();
-        if ($sku != null && $name != null && $price != null && $type != null) {
-            $this->sku = $sku;
-            $this->name = $name;
-            $this->price = $price;
-            $this->type = $type;
-            $this->description = $description;
-        } else {
-            $this->sku = 'DUMMY';
-            $this->name = 'DUMMY';
-            $this->price = 'DUMMY';
-            $this->type = 'DUMMY';
-        }
+        
+        $this->sku = $sku;
+        $this->name = $name;
+        $this->price = $price;
+        $this->type = $type;
+        $this->description = $description;
     }
-
+ 
     public function selectProducts()
     {
         $arr = [];
