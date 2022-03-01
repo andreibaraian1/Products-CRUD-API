@@ -12,7 +12,7 @@ class Book extends Product
 
     public function insertProduct($product)
     {
-        $description = $product->weight . "KG";
+        $description = $product->weight . " KG";
         $stmt = $this->db->mysqli->prepare("INSERT INTO products (sku,name,price,productType,description) VALUES (?,?,?,?,?)");
         $stmt->bind_param("ssiss", $product->sku, $product->name, $product->price, $product->type, $description);
         $stmt->execute();
