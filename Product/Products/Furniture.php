@@ -6,13 +6,20 @@ class Furniture extends Product
     public $width;
     public $length;
 
-
     public function __construct($sku, $name, $price, $height, $width, $length)
     {
         $this->height = $height;
         $this->width = $width;
         $this->length = $length;
-        $description = $height . "x" . $width . "x" . $length;
-        parent::__construct($sku, $name, $price, 'Furniture', $description);
+        parent::__construct($sku, $name, $price, 'Furniture');
+    }
+
+    public function insertProduct($product)
+    {
+        $description = $product->height . "x" . $product->width . "x" . $product->length;
+        $stmt = $this->db->mysqli->prepare("INSERT INTO products (sku,name,price,productType,description) VALUES (?,?,?,?,?)");
+        $stmt->bind_param("ssiss", $product->sku, $product->name, $product->price, $product->type, $description);
+        $stmt->execute();
+        $stmt->close();
     }
 }

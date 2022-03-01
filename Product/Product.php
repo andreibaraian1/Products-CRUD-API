@@ -2,24 +2,22 @@
 require_once dirname(__FILE__) . '/../Database/Database.php';
 class Product
 {
-    private $db;
+    protected $db;
     public $sku;
     public $name;
     public $price;
     public $type;
-    public $description;
 
-    public function __construct($sku = null, $name = null, $price = null, $type = null, $description = null)
+    public function __construct($sku = null, $name = null, $price = null, $type = null)
     {
         $this->db = new Database();
-        
+
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
         $this->type = $type;
-        $this->description = $description;
     }
- 
+
     public function selectProducts()
     {
         $arr = [];
@@ -38,19 +36,6 @@ class Product
         $id = $product->sku;
         $stmt = $this->db->mysqli->prepare("DELETE FROM products WHERE sku = ?");
         $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $stmt->close();
-    }
-
-    public function insertProduct($product)
-    {
-        $sku = $product->sku;
-        $name = $product->name;
-        $price = $product->price;
-        $productType = $product->type;
-        $description = $product->description;
-        $stmt = $this->db->mysqli->prepare("INSERT INTO products (sku,name,price,productType,description) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("ssiss", $sku, $name, $price, $productType, $description);
         $stmt->execute();
         $stmt->close();
     }
