@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/Product/Products/Book.php';
 require_once dirname(__FILE__) . '/Product/Products/Dvd.php';
 require_once dirname(__FILE__) . '/Product/Products/Furniture.php';
 require_once dirname(__FILE__) . '/headers.php';
+
 $id = $_GET['id'];
 $Prod = new Product();
 $result = $Prod->getProduct($id);
