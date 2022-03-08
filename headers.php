@@ -1,5 +1,5 @@
 <?php
-$website = "https://scandiweb-self.vercel.app";
+$website = "https://productslist.vercel.app";
 header('Access-Control-Allow-Origin:' . $website);
 header("Access-Control-Allow-Headers:" . $website);
 header('Access-Control-Allow-Methods: GET, POST,DELETE,OPTIONS');
